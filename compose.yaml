@@ -1,0 +1,14 @@
+name: solo31-beadbench
+services:
+  web:
+    build: .
+    image: solo31-beadbench:1.0
+    network_mode: bridge
+    ports: ["18931:18931"]
+    volumes: ["beadbench-data:/data"]
+    environment:
+      BEADBENCH_DATA_DIR: /data
+      PORT: 18931
+    restart: unless-stopped
+volumes:
+  beadbench-data:
